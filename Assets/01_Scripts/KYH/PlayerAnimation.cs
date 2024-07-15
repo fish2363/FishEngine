@@ -18,8 +18,6 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerInput.MoveDir);
-
         if(playerInput.MoveDir.x < 0)
         {
             spriteRenderer.flipX = true;
