@@ -18,15 +18,19 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerInput.MoveDir.x < 0)
+        // if(playerInput.MoveDir.x < 0)
+        // {
+        //     spriteRenderer.flipX = true;
+        //     animator.SetBool(walkHash, true);
+        // }
+        // else if (playerInput.MoveDir.magnitude > 0.1)
+        // {
+        //     animator.SetBool(walkHash, true);
+        //     spriteRenderer.flipX = false;
+        // }
+        if (playerInput.MoveDir.x != 0)
         {
-            spriteRenderer.flipX = true;
             animator.SetBool(walkHash, true);
-        }
-        else if (playerInput.MoveDir.magnitude > 0.1)
-        {
-            animator.SetBool(walkHash, true);
-            spriteRenderer.flipX = false;
         }
         else
         {

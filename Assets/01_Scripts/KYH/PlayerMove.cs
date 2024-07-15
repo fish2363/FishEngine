@@ -14,6 +14,10 @@ public class PlayerMove : MonoBehaviour
 
     public void Update()
     {
-        playerInput.rigid.velocity = new Vector2(playerInput.MoveDir.x * moveSpeed,playerInput.rigid.velocity.y);
+        if (playerInput.MoveDir.x != 0)
+        {
+            playerInput.transform.localScale = new Vector3(playerInput.MoveDir.x, 1, 1);
+            playerInput.rigid.velocity = new Vector2(playerInput.MoveDir.x * moveSpeed, playerInput.rigid.velocity.y);
+        }
     }
 }
