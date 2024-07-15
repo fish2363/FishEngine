@@ -7,10 +7,14 @@ public class PlayerAnimation : MonoBehaviour
     private Animator animator;
     private PlayerInput playerInput;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rigidbody2DCompo;
     private readonly int walkHash = Animator.StringToHash("Walk");
+    private readonly int jumpHash = Animator.StringToHash("Jump");
+    private readonly int fallHash = Animator.StringToHash("Fall");
 
     private void Awake()
     {
+        rigidbody2DCompo = transform.parent.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
@@ -35,6 +39,21 @@ public class PlayerAnimation : MonoBehaviour
         else
         {
             animator.SetBool(walkHash, false);
+        }
+        if (rigidbody2DCompo.velocity.y > 0.1f)
+        {
+            animator.SetBool(jumpHash, true);
+            animator.SetBool(fallHash, false);
+        }
+        else if (rigidbody2DCompo.velocity.y < -0.05f)
+        {
+            animator.SetBool(jumpHash, false);
+            animator.SetBool(fallHash, true);
+        }
+        else
+        {
+            animator.SetBool(jumpHash, false);
+            animator.SetBool(fallHash, false);
         }
     }
 }

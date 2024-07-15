@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GroundChecker()
     {
-        isGround = Physics2D.OverlapBox(transform.position, attackRadius, whatIsGround); //ÇÏ³ª °¡Á®¿À±â
+        isGround = Physics2D.OverlapBox(transform.position, attackRadius, whatIsGround); //ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     private void MoveInput()
