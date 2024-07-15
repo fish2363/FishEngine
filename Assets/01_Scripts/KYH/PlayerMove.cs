@@ -5,17 +5,15 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private Rigidbody2D rigid;
     [SerializeField] private float moveSpeed;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        rigid = GetComponent<Rigidbody2D>();
     }
 
     public void Update()
     {
-        rigid.velocity = playerInput.MoveDir * moveSpeed;
+        playerInput.rigid.velocity = new Vector2(playerInput.MoveDir.x * moveSpeed,playerInput.rigid.velocity.y);
     }
 }
