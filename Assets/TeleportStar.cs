@@ -36,14 +36,6 @@ public class TeleportStar : MonoBehaviour, IInterection
             playerTransform.position = endTransform.position;
             inPortal++;
             StartCoroutine(Wait());
-<<<<<<< Updated upstream
-=======
-            for(int i = 0; i < starStorage.StarCount; i++)
-            {
-                Star star = starStorage.TakeOutStar();
-                Destroy(star.gameObject);
-            }
->>>>>>> Stashed changes
         }
         else if(inPortal ==1)
         {
