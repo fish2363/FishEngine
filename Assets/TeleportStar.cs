@@ -11,7 +11,7 @@ public class TeleportStar : MonoBehaviour, IInterection
     private StarStorage starStorage;
     private Transform playerTransform;
     private int inPortal =0;
-    public GameObject[] inputBullun;//µµ¿ò ¸»Ç³¼±
+    public GameObject[] inputBullun;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç³ï¿½ï¿½
 
     private void Awake()
     {

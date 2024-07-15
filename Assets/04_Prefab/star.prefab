@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000f552143736dd428cdd76ea6db37e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trailRenderer: {fileID: 3992036914195028745}
 --- !u!96 &3992036914195028745
 TrailRenderer:
   serializedVersion: 3
@@ -202,8 +201,8 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -52101065
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Time: 5
   m_PreviewTimeScale: 1
