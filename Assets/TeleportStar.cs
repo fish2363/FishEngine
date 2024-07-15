@@ -8,6 +8,7 @@ public class TeleportStar : MonoBehaviour, IInterection
     private Transform endTransform;
     [SerializeField]
     private Transform startTransform;
+    private StarStorage starStorage;
     private Transform playerTransform;
     private int inPortal =0;
     public GameObject[] inputBullun;//µµ¿ò ¸»Ç³¼±
@@ -18,7 +19,7 @@ public class TeleportStar : MonoBehaviour, IInterection
 
         //startTransform = GetComponent<Transform>();
         //endTransform = GetComponentInChildren<Transform>();
-
+        starStorage = FindAnyObjectByType<StarStorage>();
         inputBullun[0].SetActive(false);
         inputBullun[1].SetActive(false);
     }
@@ -36,6 +37,10 @@ public class TeleportStar : MonoBehaviour, IInterection
             playerTransform.position = endTransform.position;
             inPortal++;
             StartCoroutine(Wait());
+            for(int i = 0; i < starStorage.StarCount; i++)
+            {
+                starStorage._stars.Pop();
+            }
         }
         else if(inPortal ==1)
         {
