@@ -10,7 +10,7 @@ public class TeleportStar : MonoBehaviour, IInterection
     private Transform startTransform;
     private Transform playerTransform;
     private int inPortal =0;
-    public GameObject[] inputBullun;//µµ¿ò ¸»Ç³¼±
+    public GameObject[] inputBullun;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç³ï¿½ï¿½
 
     private void Awake()
     {
@@ -36,6 +36,14 @@ public class TeleportStar : MonoBehaviour, IInterection
             playerTransform.position = endTransform.position;
             inPortal++;
             StartCoroutine(Wait());
+<<<<<<< Updated upstream
+=======
+            for(int i = 0; i < starStorage.StarCount; i++)
+            {
+                Star star = starStorage.TakeOutStar();
+                Destroy(star.gameObject);
+            }
+>>>>>>> Stashed changes
         }
         else if(inPortal ==1)
         {

@@ -25,6 +25,7 @@ public class StarStorage : MonoBehaviour
             return null;
         }
         Star star = _stars.Pop();
+        star.trailRendererCompo.Clear();
         star.gameObject.SetActive(true);
         StarCountChanged?.Invoke(StarCount);
         return star;

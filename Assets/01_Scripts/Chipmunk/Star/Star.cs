@@ -43,7 +43,6 @@ public class Star : MonoBehaviour
 
     private IEnumerator ShootingCoroutine()
     {
-        trailRendererCompo.Clear();
         yield return new WaitForSeconds(1f);
         IsShooting = false;
         // while(IsShooting)
