@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StarStorage : MonoBehaviour
 {
-    private Stack<Star> _stars = new();
+    public Stack<Star> _stars = new();
     public Action<int> StarCountChanged;
     public int StarCount { get => _stars.Count + 1; }
     public void StoreStar(Star star)
