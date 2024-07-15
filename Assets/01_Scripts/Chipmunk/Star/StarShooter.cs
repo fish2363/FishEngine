@@ -13,7 +13,7 @@ public class StarShooter : MonoBehaviour
             Debug.LogError("StarShooter : StarStorage is null (ObjectName : " + transform.parent.name + ")");
     }
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             ShootStar();
         }
