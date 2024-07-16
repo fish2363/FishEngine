@@ -9,6 +9,11 @@ public class CountingStar : MonoBehaviour
     private TextMeshProUGUI text;
     private StarStorage starStorage;
 
+    private void Awake()
+    {
+        starStorage = FindAnyObjectByType<StarStorage>();
+    }
+
     private void Update()
     {
         if(starStorage.StarCount == 1)

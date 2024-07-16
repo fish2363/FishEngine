@@ -7,6 +7,8 @@ public class CameraChange : MonoBehaviour
 {
     public bool rollBack;
 
+    public GameObject block;
+
     [SerializeField]
     private CinemachineVirtualCamera currentCam;
 
@@ -17,6 +19,9 @@ public class CameraChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (block != null)
+            block.SetActive(true);
+
         if(collision.CompareTag("Player"))
         {
             if(rollBack)

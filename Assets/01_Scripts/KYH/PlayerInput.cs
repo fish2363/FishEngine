@@ -10,13 +10,15 @@ public class PlayerInput : MonoBehaviour
     public Vector2 MoveDir { get; private set; }
     public Rigidbody2D rigid;
     public static bool stop;
-    public bool isGround;
+    public bool IsGround { get; private set; }
     public event Action OnFire;
 
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
-    private Vector2 attackRadius;
+    private LayerMask whatIsStarLair;
+    [SerializeField]
+    private Vector2 groundRadius;
 
 
     private void Awake()
@@ -36,7 +38,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GroundChecker()
     {
-        isGround = Physics2D.OverlapBox(transform.position, attackRadius, whatIsGround); //하나 가져오기
+        IsGround = Physics2D.OverlapBox(transform.position, groundRadius, 0, whatIsGround); //하나 가져오기
     }
 
     private void MoveInput()
@@ -44,12 +46,12 @@ public class PlayerInput : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
 
         MoveDir = new Vector2(x, 0);
-        MoveDir = MoveDir.normalized;
+        //MoveDir = MoveDir.normalized;
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGround)
         {
             rigid.AddForce(jumpForce * Vector2.up, ForceMode2D.Impulse);
         }
@@ -58,6 +60,6 @@ public class PlayerInput : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position, attackRadius);
+        Gizmos.DrawCube(transform.position, groundRadius);
     }
 }

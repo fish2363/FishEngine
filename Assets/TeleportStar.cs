@@ -12,6 +12,7 @@ public class TeleportStar : MonoBehaviour, IInterection
     private Transform playerTransform;
     private int inPortal =0;
     public GameObject[] inputBullun;//���� ��ǳ��
+    public bool deleteStar;
 
     private void Awake()
     {
@@ -31,24 +32,13 @@ public class TeleportStar : MonoBehaviour, IInterection
 
     public void Interection()
     {
-        print(inPortal);
-        if(inPortal == 0)
+        playerTransform.position = endTransform.position;
+        StartCoroutine(Wait());
+        for(int i = 0; i < starStorage.StarCount; i++)
         {
-            playerTransform.position = endTransform.position;
-            inPortal++;
-            StartCoroutine(Wait());
-            for(int i = 0; i < starStorage.StarCount; i++)
-            {
+            if(deleteStar)
                 starStorage._stars.Pop();
-            }
         }
-        else if(inPortal ==1)
-        {
-            playerTransform.position = startTransform.position;
-            inPortal--;
-            StartCoroutine(Wait());
-        }
-        inputBullun[inPortal].SetActive(false);
     }
 
     private IEnumerator Wait()

@@ -8,6 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerInput playerInput;
     private SpriteRenderer spriteRenderer;
     private readonly int walkHash = Animator.StringToHash("Walk");
+    private readonly int jumpHash = Animator.StringToHash("Jump");
 
     private void Awake()
     {
@@ -18,16 +19,13 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(playerInput.MoveDir.x < 0)
-        // {
-        //     spriteRenderer.flipX = true;
-        //     animator.SetBool(walkHash, true);
-        // }
-        // else if (playerInput.MoveDir.magnitude > 0.1)
-        // {
-        //     animator.SetBool(walkHash, true);
-        //     spriteRenderer.flipX = false;
-        // }
+        MoveAnimation();
+
+        animator.SetBool(jumpHash, !playerInput.IsGround);
+    }
+
+    private void MoveAnimation()
+    {
         if (playerInput.MoveDir.x != 0)
         {
             animator.SetBool(walkHash, true);

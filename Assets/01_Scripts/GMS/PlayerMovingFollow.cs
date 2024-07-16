@@ -8,6 +8,6 @@ public class PlayerMovingFollow : MonoBehaviour
     [SerializeField] private Transform _playerTrm;
     void Update()
     {
-        transform.position = Vector3.right * (_playerTrm.position.x - 5);
+        transform.position = new Vector3(_playerTrm.position.x - 4, 4,0);
     }
 }
